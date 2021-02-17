@@ -1,0 +1,50 @@
+﻿@model dd106516MIS4200.Models.Actor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actorAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actorAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.oscarWinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.oscarWinner)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.actorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

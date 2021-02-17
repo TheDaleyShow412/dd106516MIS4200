@@ -1,0 +1,42 @@
+﻿@model dd106516MIS4200.Models.BestPicture
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BestPicture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.movieID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.movieID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eligibleYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eligibleYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.winner)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bestPictureID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
