@@ -24,12 +24,20 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About Me", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact Me", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Actors", "Index", "Actors")</li>
-                    <li>@Html.ActionLink("Movies", "Index", "Movies")</li>
-                    <li>@Html.ActionLink("Best Picture", "Index", "BestPictures")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Databases
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Actors", "Index", "Actors")</li>
+                            <li>@Html.ActionLink("Movies", "Index", "Movies")</li>
+                            <li>@Html.ActionLink("Best Picture", "Index", "BestPictures")</li>
+                            </ul>
+                            </li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+</div>
         </div>
     </div>
     <div class="container body-content">
