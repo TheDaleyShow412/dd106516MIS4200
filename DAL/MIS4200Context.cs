@@ -15,7 +15,7 @@ namespace dd106516MIS4200.DAL
         }
         public DbSet<Actor> actor { get; set; }
         public DbSet<Movie> movie { get; set; }
-        public DbSet<BestPicture> bestPicture { get; set; }
+        public DbSet<Director> Director { get; set; }
 
     }
 }

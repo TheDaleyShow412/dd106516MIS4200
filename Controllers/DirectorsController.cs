@@ -11,108 +11,107 @@ using dd106516MIS4200.Models;
 
 namespace dd106516MIS4200.Controllers
 {
-    public class ActorsController : Controller
+    public class DirectorsController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
 
-        // GET: Actors
+        // GET: Directors
         public ActionResult Index()
         {
-            return View(db.actor.ToList());
+            return View(db.Director.ToList());
         }
 
-        // GET: Actors/Details/5
+        // GET: Directors/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actor actor = db.actor.Find(id);
-            if (actor == null)
+            Director director = db.Director.Find(id);
+            if (director == null)
             {
                 return HttpNotFound();
             }
-            return View(actor);
+            return View(director);
         }
 
-        // GET: Actors/Create
+        // GET: Directors/Create
         public ActionResult Create()
         {
-            ViewBag.actorID = new SelectList(db.actor, "actorID", "actorName");
             return View();
         }
 
-        // POST: Actors/Create
+        // POST: Directors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "actorID,firstName,lastName,actorAge,oscarWinner")] Actor actor)
+        public ActionResult Create([Bind(Include = "directorID,directorBirthDate,OscarWinner,firstName,lastName")] Director director)
         {
             if (ModelState.IsValid)
             {
-                db.actor.Add(actor);
+                db.Director.Add(director);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(actor);
+            return View(director);
         }
 
-        // GET: Actors/Edit/5
+        // GET: Directors/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actor actor = db.actor.Find(id);
-            if (actor == null)
+            Director director = db.Director.Find(id);
+            if (director == null)
             {
                 return HttpNotFound();
             }
-            return View(actor);
+            return View(director);
         }
 
-        // POST: Actors/Edit/5
+        // POST: Directors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "actorID,firstName,lastName,actorAge,oscarWinner")] Actor actor)
+        public ActionResult Edit([Bind(Include = "directorID,directorBirthDate,OscarWinner,firstName,lastName")] Director director)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(actor).State = EntityState.Modified;
+                db.Entry(director).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(actor);
+            return View(director);
         }
 
-        // GET: Actors/Delete/5
+        // GET: Directors/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actor actor = db.actor.Find(id);
-            if (actor == null)
+            Director director = db.Director.Find(id);
+            if (director == null)
             {
                 return HttpNotFound();
             }
-            return View(actor);
+            return View(director);
         }
 
-        // POST: Actors/Delete/5
+        // POST: Directors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Actor actor = db.actor.Find(id);
-            db.actor.Remove(actor);
+            Director director = db.Director.Find(id);
+            db.Director.Remove(director);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
