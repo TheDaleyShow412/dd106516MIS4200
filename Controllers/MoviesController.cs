@@ -18,7 +18,7 @@ namespace dd106516MIS4200.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            var movie = db.movie.Include(m => m.actor).Include(m => m.bestPicture);
+            var movie = db.movie.Include(m => m.actor).Include(m => m.director);
             return View(movie.ToList());
         }
 
@@ -41,7 +41,7 @@ namespace dd106516MIS4200.Controllers
         public ActionResult Create()
         {
             ViewBag.actorID = new SelectList(db.actor, "actorID", "firstName");
-            ViewBag.bestPictureID = new SelectList(db.bestPicture, "bestPictureID", "winner");
+            ViewBag.directorID = new SelectList(db.Director, "directorID", "directorName");
             return View();
         }
 
@@ -59,8 +59,8 @@ namespace dd106516MIS4200.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.actorID = new SelectList(db.actor, "actorID", "lastName");
-            ViewBag.bestPictureID = new SelectList(db.bestPicture, "bestPictureID", "year");
+            ViewBag.actorID = new SelectList(db.actor, "actorID", "actorName");
+            ViewBag.directorID = new SelectList(db.Director, "directorID", "directorName");
             return View(movie);
         }
 
@@ -76,8 +76,8 @@ namespace dd106516MIS4200.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.actorID = new SelectList(db.actor, "actorID", "firstName", movie.actorID);
-            ViewBag.bestPictureID = new SelectList(db.bestPicture, "bestPictureID", "winner", movie.bestPictureID);
+            ViewBag.actorID = new SelectList(db.actor, "actorID", "actorName", movie.actorID);
+            ViewBag.directorID = new SelectList(db.Director, "directorID", "winner", movie.directorID);
             return View(movie);
         }
 
@@ -95,7 +95,7 @@ namespace dd106516MIS4200.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.actorID = new SelectList(db.actor, "actorID", "firstName", movie.actorID);
-            ViewBag.bestPictureID = new SelectList(db.bestPicture, "bestPictureID", "winner", movie.bestPictureID);
+            ViewBag.directorID = new SelectList(db.Director, "directorID", "directName", movie.directorID);
             return View(movie);
         }
 
